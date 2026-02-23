@@ -96,14 +96,14 @@
                                 16:20</span>
                         </div>
                         <div class="flex items-center gap-2 text-slate-500 font-medium">
-                            <span class="material-symbols-outlined text-lg">visibility</span>
-                            <span th:text="${post.views} + ' views'">42 views</span>
-                        </div>
-                        <div class="flex items-center gap-2 text-slate-500 font-medium">
                             <span class="material-symbols-outlined text-lg">edit</span>
                             <span
                                 th:text="'수정일: ' + ${#temporals.format(post.updatedAt, 'yyyy-MM-dd HH:mm')}">2024-02-23
                                 16:30</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-500 font-medium">
+                            <span class="material-symbols-outlined text-lg">visibility</span>
+                            <span th:text="${post.views} + ' views'">42 views</span>
                         </div>
                     </div>
                 </header>
