@@ -37,4 +37,15 @@ public class PostRepository {
                 .findFirst()
                 .orElse(null);
     }
+
+    public void save(Post post) {
+        if (post.getNo() == null) {
+            long nextNo = posts.stream()
+                    .mapToLong(Post::getNo)
+                    .max()
+                    .orElse(0L) + 1;
+            post.setNo(nextNo);
+        }
+        posts.add(post);
+    }
 }

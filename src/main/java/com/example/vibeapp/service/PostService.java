@@ -23,4 +23,14 @@ public class PostService {
     public Post getPost(Long no) {
         return postRepository.findByNo(no);
     }
+
+    public void addPost(String title, String content) {
+        Post post = new Post();
+        post.setTitle(title);
+        post.setContent(content);
+        post.setCreatedAt(java.time.LocalDateTime.now());
+        post.setUpdatedAt(null);
+        post.setViews(0);
+        postRepository.save(post);
+    }
 }
