@@ -14,12 +14,14 @@ public class PostRepository {
     public PostRepository() {
         // Initialize with 10 dummy records
         for (long i = 1; i <= 10; i++) {
+            LocalDateTime createdAt = LocalDateTime.now().minusDays(10 - i);
+            LocalDateTime updatedAt = (i % 3 == 0) ? createdAt.plusHours(i) : createdAt;
             posts.add(new Post(
                 i,
                 "테스트 게시글 제목 " + i,
                 "이것은 " + i + "번째 게시글의 내용입니다. 안녕하세요!",
-                LocalDateTime.now().minusDays(10 - i),
-                LocalDateTime.now().minusDays(10 - i),
+                createdAt,
+                updatedAt,
                 (int) (Math.random() * 100)
             ));
         }
