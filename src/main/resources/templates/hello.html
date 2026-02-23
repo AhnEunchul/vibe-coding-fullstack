@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>바이브코딩 | Vibe Coding</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#ffffff",
+                        "background-dark": "#101622",
+                        "neutral-gray": "#f5f6f8",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .samsung-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a class="flex items-center gap-2 group" href="#">
+                    <div class="bg-primary p-1.5 rounded-sm">
+                        <svg class="w-5 h-5 text-white" fill="none" viewbox="0 0 48 48"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900">바이브코딩</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8 ml-4">
+                    <a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors"
+                        href="#">Courses</a>
+                    <a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors"
+                        href="#">Community</a>
+                    <a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors"
+                        href="#">Mentors</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="hidden sm:block text-sm font-bold text-slate-900 px-4 py-2 hover:bg-slate-50 transition-colors">Sign
+                    In</button>
+                <button
+                    class="bg-primary text-white text-sm font-bold px-6 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-primary/20">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white z-10"></div>
+            <img alt="Abstract technology background with glowing circuits" class="w-full h-full object-cover scale-105"
+                data-alt="Abstract blue tech circuit pattern background"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzyk4qtbvGVKJtEy1xQs-i9-P9NM8-tYGWPeFVfgaApwioA9v0RGelfZhuTC5ZMNdxamrHCvQqBMdu-0BO5ljOboqzZknsXRWEVv_rSbhcN-UIK-2fPNJyPcTxCsnd645E5LTEM_ZKzZWyvVDzlQE4NCuTPMCljfobEfn7ZXRm_V9IUoolQKPEyYMEj9KM0sJ8AIu3j38T0zBdFiVFt6VbFi6ltK1jB-64MXDDNH_Gl639sX5C513yty6F8GggmnPDjeYEwOzryxE" />
+        </div>
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
+            <span
+                class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-6">
+                Premium Coding Education
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+                바이브코딩: 당신의 <br />
+                <span class="text-primary">코딩 감각</span>을 일깨우다
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+                단순한 기술 습득을 넘어, 실무에서 즉시 활용 가능한 <br class="hidden md:block" />
+                감각적인 코딩 실력을 완성하는 최상의 커리큘럼.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button
+                    class="w-full sm:w-auto px-10 py-4 bg-primary text-white font-bold rounded-full text-lg hover:bg-blue-700 transition-all shadow-xl shadow-primary/25">
+                    교육과정 둘러보기
+                </button>
+                <button
+                    class="w-full sm:w-auto px-10 py-4 bg-white text-slate-900 border border-slate-200 font-bold rounded-full text-lg hover:bg-slate-50 transition-all">
+                    상담 신청하기
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Core Strengths -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Core Strengths</h2>
+                <div class="w-12 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="group p-8 rounded-xl border border-slate-100 bg-white samsung-shadow hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">terminal</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-slate-900 mb-4">실전 중심 커리큘럼</h3>
+                    <p class="text-slate-500 leading-relaxed font-medium">
+                        단순 이론 교육이 아닌, 실제 현업 데이터를 활용한 프로젝트 기반의 고밀도 학습을 제공합니다.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="group p-8 rounded-xl border border-slate-100 bg-white samsung-shadow hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">diversity_3</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-slate-900 mb-4">1:1 밀착 멘토링</h3>
+                    <p class="text-slate-500 leading-relaxed font-medium">
+                        현직 시니어 개발자가 직접 진행하는 코드 리뷰와 맞춤형 커리어 로드맵을 경험하세요.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="group p-8 rounded-xl border border-slate-100 bg-white samsung-shadow hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">verified_user</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-slate-900 mb-4">취업 연계 시스템</h3>
+                    <p class="text-slate-500 leading-relaxed font-medium">
+                        글로벌 IT 대기업 및 유망 스타트업과의 직접적인 채용 매칭 네트워크를 통해 커리어를 시작하세요.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Success Stories -->
+    <section class="py-24 bg-neutral-gray">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-end justify-between mb-16">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Success Stories</h2>
+                    <p class="text-slate-500 mt-2 font-medium">바이브코딩을 통해 성장한 졸업생들의 리얼 후기</p>
+                </div>
+                <div class="hidden md:flex gap-2">
+                    <button class="p-2 border border-slate-200 rounded-full hover:bg-white transition-colors">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button class="p-2 border border-slate-200 rounded-full hover:bg-white transition-colors">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl samsung-shadow">
+                    <div class="flex text-yellow-400 mb-4">
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                    </div>
+                    <p class="text-slate-700 font-medium leading-relaxed mb-8 italic">
+                        "비전공자임에도 불구하고 바이브코딩의 체계적인 멘토링 덕분에 6개월 만에 대기업 프론트엔드 개발자로 취업할 수 있었습니다."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200">
+                            <img alt="Student profile" data-alt="Student profile photo of a smiling professional"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrXQ1SMb3BANhQC85HEKV6lGy_g5AwY6z8NE8JZrHELSDWAKuzhxsm4SKIb2_wLcgj4Qz-45kgPoPxHRdcQ3q83rK-P9tanLIhbA4XSV7W8KUiHuXiby459Dc_FaJaMSXhUoAlMIaTR046Nw5qt-hPkwn0cEB8Nm5VafmXgOODAqBPPXPTxRqDZ8MzY7WbHWUFrY6wd94QLEzNMQzNUysqpDe96SfbUwX5Il1SaQv7Yvcwj-osGu2dxiA09gX3PyATxfys5ofuXFw" />
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">김민수</h4>
+                            <p class="text-xs text-slate-500">S사 소프트웨어 엔지니어</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl samsung-shadow">
+                    <div class="flex text-yellow-400 mb-4">
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                    </div>
+                    <p class="text-slate-700 font-medium leading-relaxed mb-8 italic">
+                        "실전 프로젝트 위주의 수업 방식이 면접에서 큰 도움이 되었습니다. 단순히 코드를 짜는 법이 아닌, 협업하는 방식을 배웠습니다."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200">
+                            <img alt="Student profile" data-alt="Student profile photo of a happy graduate"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi59CaZCOqJ8144E8QOiBYbQ859bgBlgQYnDZi20buCit60mmyFP1nGps7GI8lk5sLa3GgDnlGq7DW-1JhMiRsUOfJqWckdOA3APtyQMLRgKae6sm6Cq_ouA0-59Pr_ZOa0ia_SSrgUEZY_Fhj-WinYgE5tstmRbhz7DTRPfrmnD8Y5IQ1-GWypqdbRmHeF6w5Yeb42_l9iEjM835gw6xb_0c_oJn4VniGGtWJIqHyYmShdBKpQEFujeudNT9I2ljrHqBOVoB0k8U" />
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">이지영</h4>
+                            <p class="text-xs text-slate-500">K사 풀스택 개발자</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl samsung-shadow">
+                    <div class="flex text-yellow-400 mb-4">
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                    </div>
+                    <p class="text-slate-700 font-medium leading-relaxed mb-8 italic">
+                        "1:1 멘토링은 다른 학원과 차원이 달랐습니다. 현직자의 관점에서 제 코드를 다시 바라볼 수 있게 된 소중한 경험이었습니다."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200">
+                            <img alt="Student profile" data-alt="Student profile photo of a tech enthusiast"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuApUXiQRiwNX3AGrtEVZ0lVJGw6Dh_UpaaRGvaKuhIwO3F0LDrXdEFSiupacl4tF0mXkKP3k8rJfyRfj3Q7G0XOVNNuwFZvYcsYmx10IVpzx2naHWjHLk9SCaAdF7hMlPIG1HkVAmmL2_WtGDyMUzKRMXDrNH6g415XrTcElz2obqZiQF4FDltjhd1J-8QJqT9E9Yka8h9a4NbGqrAKbEgLO48a0exUYI7VoNtOFC7yup77FVtEfbtKXUyGD8c5bIj2SIwQ-dRoA1E" />
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">박준호</h4>
+                            <p class="text-xs text-slate-500">T사 데이터 엔지니어</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+                당신의 코딩 라이프, <br class="sm:hidden" /> 지금 바로 시작하세요.
+            </h2>
+            <p class="text-lg text-slate-600 mb-10 font-medium">
+                더 늦기 전에 프리미엄 코딩 커뮤니티, 바이브코딩과 함께 하세요.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button
+                    class="bg-primary text-white text-lg font-bold px-12 py-4 rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-primary/30">
+                    지금 바로 시작하기
+                </button>
+                <button
+                    class="text-slate-900 text-lg font-bold px-12 py-4 flex items-center justify-center gap-2 group">
+                    과정 상담 신청 <span
+                        class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-neutral-gray border-t border-slate-200 pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-12 mb-16">
+                <div class="col-span-2">
+                    <a class="flex items-center gap-2 mb-6" href="#">
+                        <div class="bg-primary p-1.5 rounded-sm">
+                            <svg class="w-4 h-4 text-white" fill="none" viewbox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-extrabold tracking-tight text-slate-900">바이브코딩</span>
+                    </a>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-xs mb-6">
+                        실무 감각을 깨우는 프리미엄 코딩 교육 플랫폼. <br />
+                        우리는 기술을 넘어 가치를 만드는 개발자를 양성합니다.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-sm">public</span></a>
+                        <a class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-sm">chat</span></a>
+                        <a class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 mb-6">Courses</h5>
+                    <ul class="space-y-4 text-sm font-medium text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="#">Frontend Deep Dive</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Backend Master</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Data Science</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">UI/UX Design</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 mb-6">Community</h5>
+                    <ul class="space-y-4 text-sm font-medium text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="#">Tech Blog</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Success Stories</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Job Board</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Discord Server</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 mb-6">Company</h5>
+                    <ul class="space-y-4 text-sm font-medium text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Mentors</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-xs font-medium text-slate-400">
+                    © 2024 Vibe Coding Inc. All rights reserved.
+                </p>
+                <div class="flex gap-8 text-xs font-medium text-slate-400">
+                    <a class="hover:text-slate-900" href="#">Terms of Service</a>
+                    <a class="hover:text-slate-900" href="#">Privacy Policy</a>
+                    <a class="hover:text-slate-900" href="#">Cookies Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
