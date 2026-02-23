@@ -91,18 +91,18 @@
                     <div class="flex flex-wrap items-center gap-6">
                         <div class="flex items-center gap-2 text-slate-500 font-medium">
                             <span class="material-symbols-outlined text-lg">event</span>
-                            <span th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}">2024-02-23
+                            <span
+                                th:text="'작성일: ' + ${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}">2024-02-23
                                 16:20</span>
                         </div>
                         <div class="flex items-center gap-2 text-slate-500 font-medium">
                             <span class="material-symbols-outlined text-lg">visibility</span>
                             <span th:text="${post.views} + ' views'">42 views</span>
                         </div>
-                        <div class="flex items-center gap-2 text-slate-500 font-medium"
-                            th:if="${post.updatedAt != post.createdAt}">
+                        <div class="flex items-center gap-2 text-slate-500 font-medium">
                             <span class="material-symbols-outlined text-lg">edit</span>
                             <span
-                                th:text="'수정됨: ' + ${#temporals.format(post.updatedAt, 'yyyy-MM-dd HH:mm')}">2024-02-23
+                                th:text="'수정일: ' + ${#temporals.format(post.updatedAt, 'yyyy-MM-dd HH:mm')}">2024-02-23
                                 16:30</span>
                         </div>
                     </div>

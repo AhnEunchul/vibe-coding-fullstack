@@ -91,6 +91,7 @@
                                 <th class="py-3 px-4 font-bold" style="width: 80px;">No.</th>
                                 <th class="py-3 px-4 font-bold">제목</th>
                                 <th class="py-3 px-4 font-bold" style="width: 200px;">작성일</th>
+                                <th class="py-3 px-4 font-bold" style="width: 200px;">수정일</th>
                                 <th class="py-3 px-4 font-bold" style="width: 100px;">조회수</th>
                             </tr>
                         </thead>
@@ -104,6 +105,9 @@
                                 </td>
                                 <td class="py-3 px-4 text-slate-500 text-sm"
                                     th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}">2024-02-23 16:20
+                                </td>
+                                <td class="py-3 px-4 text-slate-500 text-sm"
+                                    th:text="${#temporals.format(post.updatedAt, 'yyyy-MM-dd HH:mm')}">2024-02-23 16:30
                                 </td>
                                 <td class="py-3 px-4">
                                     <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill font-bold"
