@@ -12,14 +12,17 @@
 - **JDK**: JDK 25 이상
 - **프레임워크**: Spring Boot 4.0.1 이상
 - **빌드 도구**: Gradle 9.3.0 이상 (Groovy DSL 사용)
-- **뷰 템플릿**: Thymeleaf
-
+- **뷰 템플릿 Engine**: Thymeleaf
+- **프론트엔드 프레임워크**:
+    - **Bootstrap 5.3.3** (CDN 방식)
+    - **Tailwind CSS** (CDN 방식)
 
 ## 3. 프로젝트 메타데이터
 - **Group**: `com.example`
 - **Artifact**: `vibeapp`
 - **Main Class Name**: `com.example.vibeapp.VibeApp`
 - **Description**: 최소 기능 스프링부트 애플리케이션을 생성하는 프로젝트다.
+- **Git Commit Convention**: Conventional Commits ([git-message-format.md](file:///e:/교육자료/git/vibe-coding-fullstack/git-message-format.md) 준수)
 
 ## 4. 빌드 구성 (build.gradle)
 ```groovy

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${post.title} + ' | 바이브코딩'">게시글 상세 | 바이브코딩</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#ffffff",
+                        "neutral-gray": "#f5f6f8",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .samsung-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .post-content {
+            line-height: 1.8;
+            color: #4a5568;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a class="flex items-center gap-2 group" href="/">
+                <div class="bg-primary p-1.5 rounded-sm">
+                    <svg class="w-5 h-5 text-white" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight text-slate-900">바이브코딩</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="/" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Home</a>
+                <a href="/posts" class="text-sm font-bold text-primary transition-colors">Posts</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="mb-8 flex items-center justify-between">
+                <a href="/posts"
+                    class="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors font-bold text-sm">
+                    <span class="material-symbols-outlined text-base">arrow_back</span>
+                    목록으로 돌아가기
+                </a>
+                <span class="text-xs font-bold text-slate-400" th:text="'No. ' + ${post.no}">No. 1</span>
+            </div>
+
+            <article class="bg-white rounded-3xl border border-slate-100 samsung-shadow p-8 md:p-12">
+                <header class="mb-10 pb-10 border-b border-slate-100">
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-8"
+                        th:text="${post.title}">게시글 제목입니다.</h1>
+
+                    <div class="flex flex-wrap items-center gap-6">
+                        <div class="flex items-center gap-2 text-slate-500 font-medium">
+                            <span class="material-symbols-outlined text-lg">event</span>
+                            <span th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}">2024-02-23
+                                16:20</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-500 font-medium">
+                            <span class="material-symbols-outlined text-lg">visibility</span>
+                            <span th:text="${post.views} + ' views'">42 views</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-500 font-medium"
+                            th:if="${post.updatedAt != post.createdAt}">
+                            <span class="material-symbols-outlined text-lg">edit</span>
+                            <span
+                                th:text="'수정됨: ' + ${#temporals.format(post.updatedAt, 'yyyy-MM-dd HH:mm')}">2024-02-23
+                                16:30</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="post-content text-lg font-medium whitespace-pre-line" th:text="${post.content}">
+                    게시글 내용입니다.
+                </div>
+            </article>
+
+            <div class="mt-12 text-center">
+                <a href="/posts"
+                    class="inline-flex items-center gap-2 bg-primary text-white font-bold px-10 py-3.5 rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-primary/20">
+                    목록으로 이동
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-neutral-gray border-t border-slate-200 py-12 text-center text-sm font-medium text-slate-500">
+        © 2024 Vibe Coding Inc. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
