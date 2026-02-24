@@ -31,8 +31,8 @@ public class PostController {
     }
 
     @GetMapping("/posts/{no}")
-    public String postDetail(@PathVariable("no") Long no, Model model) {
-        model.addAttribute("post", postService.getPost(no));
+    public String getPostDetail(@PathVariable("no") Long no, Model model) {
+        model.addAttribute("post", postService.findById(no));
         return "post/post_detail";
     }
 
@@ -42,14 +42,14 @@ public class PostController {
     }
 
     @PostMapping("/posts/add")
-    public String addPost(@RequestParam("title") String title, @RequestParam("content") String content) {
-        postService.addPost(title, content);
+    public String createPost(@RequestParam("title") String title, @RequestParam("content") String content) {
+        postService.createPost(title, content);
         return "redirect:/posts";
     }
 
     @GetMapping("/posts/{no}/edit")
     public String editPostForm(@PathVariable("no") Long no, Model model) {
-        model.addAttribute("post", postService.getPost(no));
+        model.addAttribute("post", postService.findById(no));
         return "post/post_edit_form";
     }
 

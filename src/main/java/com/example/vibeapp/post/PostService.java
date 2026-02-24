@@ -30,11 +30,11 @@ public class PostService {
         return postRepository.findAll().size();
     }
 
-    public Post getPost(Long no) {
-        return postRepository.findByNo(no);
+    public Post findById(Long no) {
+        return postRepository.findById(no);
     }
 
-    public void addPost(String title, String content) {
+    public void createPost(String title, String content) {
         Post post = new Post();
         post.setTitle(title);
         post.setContent(content);
@@ -45,7 +45,7 @@ public class PostService {
     }
 
     public void updatePost(Long no, String title, String content) {
-        Post post = getPost(no);
+        Post post = findById(no);
         if (post != null) {
             post.setTitle(title);
             post.setContent(content);
