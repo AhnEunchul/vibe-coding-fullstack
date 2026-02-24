@@ -8,11 +8,11 @@ public record PostCreateDto(
     @NotBlank(message = "제목은 필수입니다.")
     @Size(max = 100, message = "제목은 100자를 초과할 수 없습니다.")
     String title,
-
-    String content
+    String content,
+    String tags
 ) {
     public PostCreateDto() {
-        this(null, null);
+        this(null, null, null);
     }
 
     public Post toEntity() {

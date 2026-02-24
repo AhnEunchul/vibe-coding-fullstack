@@ -109,6 +109,13 @@
                             class="w-full border-slate-200 rounded-xl px-4 py-3 font-medium text-slate-700 focus:ring-primary focus:border-primary transition-all"></textarea>
                     </div>
 
+                    <div>
+                        <label class="block text-sm font-bold text-slate-500 mb-2">태그</label>
+                        <input type="text" th:field="*{tags}"
+                            class="w-full border-slate-200 rounded-xl px-4 py-3 font-bold text-slate-900 focus:ring-primary focus:border-primary transition-all"
+                            placeholder="쉼표(,)로 구분하여 입력 (예: 태그1, 태그2)">
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-slate-100">
                         <div>
                             <label class="block text-sm font-bold text-slate-500 mb-2">생성일</label>

@@ -8,9 +8,10 @@ public record PostUpdateDto(
     @Size(max = 100, message = "제목은 100자를 초과할 수 없습니다.")
     String title,
 
-    String content
+    String content,
+    String tags
 ) {
     public PostUpdateDto() {
-        this(null, null);
+        this(null, null, null);
     }
 }
