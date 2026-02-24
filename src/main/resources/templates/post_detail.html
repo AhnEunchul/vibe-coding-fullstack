@@ -119,6 +119,11 @@
                     <span class="material-symbols-outlined text-lg">edit</span>
                     수정
                 </a>
+                <a th:href="@{/posts/{no}/delete(no=${post.no})}"
+                    class="inline-flex items-center gap-2 bg-rose-500 text-white font-bold px-10 py-3.5 rounded-full hover:bg-rose-600 transition-all shadow-xl shadow-rose-500/20">
+                    <span class="material-symbols-outlined text-lg">delete</span>
+                    삭제
+                </a>
                 <a href="/posts"
                     class="inline-flex items-center gap-2 bg-primary text-white font-bold px-10 py-3.5 rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-primary/20">
                     목록으로 이동
