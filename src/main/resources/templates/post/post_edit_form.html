@@ -79,7 +79,8 @@
             </div>
 
             <div class="bg-white rounded-3xl border border-slate-100 samsung-shadow p-8 md:p-12">
-                <form th:action="@{/posts/{no}/save(no=${post.no})}" method="POST" class="space-y-8">
+                <form th:action="@{/posts/{no}/save(no=${post.no})}" th:object="${post}" method="POST"
+                    class="space-y-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                             <label class="block text-sm font-bold text-slate-500 mb-2">번호</label>
@@ -95,15 +96,17 @@
 
                     <div>
                         <label class="block text-sm font-bold text-slate-500 mb-2">제목</label>
-                        <input type="text" name="title" th:value="${post.title}" required
-                            class="w-full border-slate-200 rounded-xl px-4 py-3 font-bold text-slate-900 focus:ring-primary focus:border-primary transition-all">
+                        <input type="text" th:field="*{title}"
+                            class="w-full border-slate-200 rounded-xl px-4 py-3 font-bold text-slate-900 focus:ring-primary focus:border-primary transition-all"
+                            th:classappend="${#fields.hasErrors('title')} ? 'is-invalid' : ''">
+                        <div class="invalid-feedback font-bold mt-2" th:if="${#fields.hasErrors('title')}"
+                            th:errors="*{title}">제목 오류</div>
                     </div>
 
                     <div>
                         <label class="block text-sm font-bold text-slate-500 mb-2">내용</label>
-                        <textarea name="content" rows="10" required
-                            class="w-full border-slate-200 rounded-xl px-4 py-3 font-medium text-slate-700 focus:ring-primary focus:border-primary transition-all"
-                            th:text="${post.content}"></textarea>
+                        <textarea th:field="*{content}" rows="10"
+                            class="w-full border-slate-200 rounded-xl px-4 py-3 font-medium text-slate-700 focus:ring-primary focus:border-primary transition-all"></textarea>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-slate-100">

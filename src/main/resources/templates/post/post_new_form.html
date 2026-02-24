@@ -80,17 +80,20 @@
             </div>
 
             <div class="bg-white rounded-3xl border border-slate-100 samsung-shadow p-8 md:p-12">
-                <form id="newPostForm" action="/posts/add" method="POST">
+                <form id="newPostForm" th:action="@{/posts/add}" th:object="${post}" method="POST">
                     <div class="mb-8">
                         <label for="title" class="block text-sm font-bold text-slate-700 mb-3">제목</label>
-                        <input type="text" id="title" name="title" required
+                        <input type="text" id="title" th:field="*{title}"
                             class="form-control form-control-lg bg-slate-50 border-slate-100 rounded-xl px-5 py-4 text-base font-semibold placeholder:text-slate-400"
+                            th:classappend="${#fields.hasErrors('title')} ? 'is-invalid' : ''"
                             placeholder="제목을 입력해 주세요.">
+                        <div class="invalid-feedback font-bold mt-2" th:if="${#fields.hasErrors('title')}"
+                            th:errors="*{title}">제목 오류</div>
                     </div>
 
                     <div class="mb-10">
                         <label for="content" class="block text-sm font-bold text-slate-700 mb-3">내용</label>
-                        <textarea id="content" name="content" rows="8" required
+                        <textarea id="content" th:field="*{content}" rows="8"
                             class="form-control form-control-lg bg-slate-50 border-slate-100 rounded-xl px-5 py-4 text-base font-medium placeholder:text-slate-400"
                             placeholder="내용을 자유롭게 입력해 주세요."></textarea>
                     </div>

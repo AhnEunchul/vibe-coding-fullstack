@@ -13,7 +13,7 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public List<Post> getPosts(int page, int size) {
+    public List<PostListDto> getPosts(int page, int size) {
         List<Post> allPosts = postRepository.findAll().stream()
                 .sorted((p1, p2) -> p2.getNo().compareTo(p1.getNo()))
                 .toList();
@@ -23,32 +23,28 @@ public class PostService {
             return List.of();
         }
 
-        return allPosts.subList(fromIndex, Math.min(fromIndex + size, allPosts.size()));
+        return allPosts.subList(fromIndex, Math.min(fromIndex + size, allPosts.size())).stream()
+                .map(PostListDto::from)
+                .toList();
     }
 
     public int getTotalCount() {
         return postRepository.findAll().size();
     }
 
-    public Post findById(Long no) {
-        return postRepository.findById(no);
+    public PostResponseDto findById(Long no) {
+        return PostResponseDto.from(postRepository.findById(no));
     }
 
-    public void createPost(String title, String content) {
-        Post post = new Post();
-        post.setTitle(title);
-        post.setContent(content);
-        post.setCreatedAt(java.time.LocalDateTime.now());
-        post.setUpdatedAt(null);
-        post.setViews(0);
-        postRepository.save(post);
+    public void createPost(PostCreateDto createDto) {
+        postRepository.save(createDto.toEntity());
     }
 
-    public void updatePost(Long no, String title, String content) {
-        Post post = findById(no);
+    public void updatePost(Long no, PostUpdateDto updateDto) {
+        Post post = postRepository.findById(no);
         if (post != null) {
-            post.setTitle(title);
-            post.setContent(content);
+            post.setTitle(updateDto.getTitle());
+            post.setContent(updateDto.getContent());
             post.setUpdatedAt(java.time.LocalDateTime.now());
         }
     }
