@@ -113,7 +113,12 @@
                 </div>
             </article>
 
-            <div class="mt-12 text-center">
+            <div class="mt-12 text-center flex items-center justify-center gap-4">
+                <a th:href="@{/posts/{no}/edit(no=${post.no})}"
+                    class="inline-flex items-center gap-2 bg-slate-900 text-white font-bold px-10 py-3.5 rounded-full hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/10">
+                    <span class="material-symbols-outlined text-lg">edit</span>
+                    수정
+                </a>
                 <a href="/posts"
                     class="inline-flex items-center gap-2 bg-primary text-white font-bold px-10 py-3.5 rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-primary/20">
                     목록으로 이동
