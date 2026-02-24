@@ -4,7 +4,7 @@
 
 ## 1. 프로젝트 개요
 - **프로젝트 명**: vibeapp
-- **설명**: 최소 기능 스프링부트 애플리케이션을 생성하는 프로젝트입니다.
+- **설명**: 최소 기능 스프링부트 애플리케이션을 기반으로 한 도메인 중심의 게시판 서비스입니다.
 - **개발 언어**: Java
 - **구성 방식**: YAML 기반 설정
 
@@ -16,15 +16,39 @@
 - **프론트엔드 프레임워크**:
     - **Bootstrap 5.3.3** (CDN 방식)
     - **Tailwind CSS** (CDN 방식)
+    - **Material Symbols** (구글 폰트 아이콘)
 
-## 3. 프로젝트 메타데이터
-- **Group**: `com.example`
-- **Artifact**: `vibeapp`
-- **Main Class Name**: `com.example.vibeapp.VibeApp`
-- **Description**: 최소 기능 스프링부트 애플리케이션을 생성하는 프로젝트다.
-- **Git Commit Convention**: Conventional Commits ([git-message-format.md](file:///e:/교육자료/git/vibe-coding-fullstack/git-message-format.md) 준수)
+## 3. 프로젝트 아키텍처 (기능형 구조)
+도메인(기능)별로 패키지를 분리하여 관리가 용이하게 구성되었습니다.
 
-## 4. 빌드 구성 (build.gradle)
+### 3.1. 자바 패키지 구조 (`src/main/java/com/example/vibeapp`)
+- `home/`: 홈페이지 관련 컨트롤러 (`HomeController.java`)
+- `post/`: 게시판 관련 전체 레이어
+    - `Post.java`: 게시글 도메인 모델
+    - `PostController.java`: 게시판 HTTP 요청 처리
+    - `PostService.java`: 비즈니스 로직 처리
+    - `PostRepository.java`: 인메모리 게시글 데이터 저장소
+
+### 3.2. 뷰 템플릿 구조 (`src/main/resources/templates`)
+- `home/`: 홈 화면 템플릿 (`home.html`)
+- `post/`: 게시판 관련 템플릿
+    - `posts.html`: 게시글 목록 (페이징 포함)
+    - `post_detail.html`: 게시글 상세 보기
+    - `post_new_form.html`: 게시글 작성 폼
+    - `post_edit_form.html`: 게시글 수정 폼
+
+## 4. 주요 기능
+- **게시글 관리 (CRUD)**: 게시글 등록, 상세 조회, 수정, 삭제 기능 제공.
+- **페이징 처리**: 목록 페이지에서 페이지당 5개의 게시글을 노출하며, 하단 페이지네이션 바를 통해 페이지 이동 가능.
+- **인메모리 저장소**: 초기 로딩 시 10개의 더미 데이터를 생성하여 테스트 가능.
+
+## 5. 코드 스타일 및 관례
+- **명명 규칙**: 실무 관례(Standard Naming)를 따름.
+    - 데이터 조회: `findById`, `findAll`
+    - 데이터 생성/수정: `createPost`, `updatePost`
+- **Git Commit Convention**: Conventional Commits 준수.
+
+## 6. 빌드 구성 (build.gradle)
 ```groovy
 plugins {
     id 'java'
@@ -51,12 +75,13 @@ dependencies {
 }
 ```
 
-## 5. 애플리케이션 설정 (src/main/resources/application.yml)
+## 7. 애플리케이션 설정 (application.yml)
 ```yaml
 spring:
   application:
     name: vibeapp
   profiles:
+    active: dev
   thymeleaf:
     cache: false
     mode: HTML
@@ -69,4 +94,4 @@ server:
 ```
 
 ---
-*작성일: 2026년 2월 23일*
+*최종 업데이트: 2026년 2월 24일*
