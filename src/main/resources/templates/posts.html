@@ -117,6 +117,41 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Pagination -->
+                <div class="px-8 py-6 border-t border-slate-100 flex items-center justify-between"
+                    th:if="${totalPages > 0}">
+                    <div class="text-sm font-bold text-slate-500">
+                        전체 <span class="text-primary" th:text="${totalCount}">0</span>개의 게시글
+                    </div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-sm mb-0 gap-1 border-0">
+                            <!-- Previous -->
+                            <li class="page-item" th:classappend="${currentPage == 1} ? 'disabled'">
+                                <a class="page-link rounded-lg border-slate-200 text-slate-600 hover:bg-slate-50"
+                                    th:href="@{/posts(page=${currentPage - 1})}" aria-label="Previous">
+                                    <span class="material-symbols-outlined text-sm leading-none">chevron_left</span>
+                                </a>
+                            </li>
+
+                            <!-- Numbers -->
+                            <li class="page-item" th:each="pageNum : ${#numbers.sequence(1, totalPages)}"
+                                th:classappend="${pageNum == currentPage} ? 'active'">
+                                <a class="page-link rounded-lg border-slate-200 font-bold px-3 py-1.5"
+                                    th:classappend="${pageNum == currentPage} ? 'bg-primary border-primary text-white shadow-lg shadow-primary/20' : 'text-slate-600 hover:bg-slate-50'"
+                                    th:href="@{/posts(page=${pageNum})}" th:text="${pageNum}">1</a>
+                            </li>
+
+                            <!-- Next -->
+                            <li class="page-item" th:classappend="${currentPage == totalPages} ? 'disabled'">
+                                <a class="page-link rounded-lg border-slate-200 text-slate-600 hover:bg-slate-50"
+                                    th:href="@{/posts(page=${currentPage + 1})}" aria-label="Next">
+                                    <span class="material-symbols-outlined text-sm leading-none">chevron_right</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </main>
