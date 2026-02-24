@@ -10,6 +10,6 @@ public class HelloController {
     @GetMapping("/hello")
     public String hello(Model model) {
         model.addAttribute("message", "Hello from Thymeleaf!");
-        return "hello";
+        return "home/hello";
     }
 }
