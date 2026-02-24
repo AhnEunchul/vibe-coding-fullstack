@@ -24,7 +24,9 @@ public class PostService {
         return postRepository.count();
     }
 
+    @Transactional
     public PostResponseDto findById(Long no) {
+        postRepository.increaseViews(no);
         return PostResponseDto.from(postRepository.findById(no));
     }
 

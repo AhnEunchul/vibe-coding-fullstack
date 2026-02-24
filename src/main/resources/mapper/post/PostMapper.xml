@@ -36,6 +36,10 @@
         DELETE FROM POSTS WHERE NO = #{no}
     </delete>
 
+    <update id="increaseViews">
+        UPDATE POSTS SET VIEWS = VIEWS + 1 WHERE NO = #{no}
+    </update>
+
     <select id="count" resultType="int">
         SELECT COUNT(*) FROM POSTS
     </select>
