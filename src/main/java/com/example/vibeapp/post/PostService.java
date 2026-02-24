@@ -1,6 +1,6 @@
 package com.example.vibeapp.post;
 
-
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,22 +14,14 @@ public class PostService {
     }
 
     public List<PostListDto> getPosts(int page, int size) {
-        List<Post> allPosts = postRepository.findAll().stream()
-                .sorted((p1, p2) -> p2.getNo().compareTo(p1.getNo()))
-                .toList();
-
-        int fromIndex = (page - 1) * size;
-        if (allPosts.size() <= fromIndex) {
-            return List.of();
-        }
-
-        return allPosts.subList(fromIndex, Math.min(fromIndex + size, allPosts.size())).stream()
+        int offset = (page - 1) * size;
+        return postRepository.findAllWithPaging(offset, size).stream()
                 .map(PostListDto::from)
                 .toList();
     }
 
     public int getTotalCount() {
-        return postRepository.findAll().size();
+        return postRepository.count();
     }
 
     public PostResponseDto findById(Long no) {
@@ -40,12 +32,14 @@ public class PostService {
         postRepository.save(createDto.toEntity());
     }
 
+    @Transactional
     public void updatePost(Long no, PostUpdateDto updateDto) {
         Post post = postRepository.findById(no);
         if (post != null) {
             post.setTitle(updateDto.title());
             post.setContent(updateDto.content());
             post.setUpdatedAt(java.time.LocalDateTime.now());
+            postRepository.update(post);
         }
     }
 
