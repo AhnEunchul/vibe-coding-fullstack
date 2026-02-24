@@ -12,9 +12,12 @@ spring:
 
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:file:./data/testdb;NON_KEYWORDS=USER;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
+    url: jdbc:h2:file:./data/testdb;NON_KEYWORDS=USER;AUTO_SERVER=TRUE
     username: sa
     password:
+  sql:
+    init:
+      mode: always
   h2:
     console:
       enabled: true
